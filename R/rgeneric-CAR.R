@@ -93,7 +93,7 @@
 'inla.rgeneric.micar.model' = function(cmd = c("graph", "Q", "mu", "initial",
   "log.norm.const", "log.prior", "quit"), theta = NULL)
 {
-  interpret.theta = function()
+  interpret.theta <- function()
   {
   ## internal helper-function to map the parameters from the internal-scale to the
   ## user-scale
@@ -102,14 +102,14 @@
     alpha = theta[3L])) #theta3 = alpha
 }
 
-graph = function()
+graph <- function()
 {
   G = Matrix::Diagonal(n, 1)
   G[idx.na, idx.na] <- W[idx.na, idx.na]
   return (G) 
 }
 
-Q = function()
+Q <- function()
 {
     ## returns the precision matrix for given parameters
     param = interpret.theta()
@@ -120,7 +120,7 @@ Q = function()
   return (Q)
 }
 
-mu = function() {
+mu <- function() {
   param = interpret.theta()
   mu.x <- x
   
@@ -130,12 +130,12 @@ mu = function() {
   return(mu.x)
 }
 
-log.norm.const = function() {
+log.norm.const <- function() {
   ## return the log(normalising constant) for the model
   param = interpret.theta()
   return (numeric(0))
 }
-    log.prior = function()
+    log.prior <- function()
     {
       ## return the log-prior for the hyperparameters. the ’+theta[1L]’ is the log(Jacobian)
       ## for having a gamma prior on the precision and convert it into the prior for the
@@ -166,18 +166,30 @@ log.norm.const = function() {
       return (as.numeric(val))
     }
 
-    initial = function()
+    initial <- function()
     {
         ## return initial values
         ntheta = 3
         return (rep(0, ntheta))
 }
 
-    quit = function()
+    quit <- function()
     {
         return (invisible())
     }
-    val = do.call(match.arg(cmd), args = list())
+
+    # FIX for rgeneric to work on R >= 4
+    # Provided by E. T. Krainski
+    if (as.integer(R.version$major) > 3) {
+      if (!length(theta))
+        theta <- initial()
+    } else {
+      if (is.null(theta)) {
+        theta <- initial()
+      }
+    }
+
+    val <- do.call(match.arg(cmd), args = list())
     return (val)
 }
 
