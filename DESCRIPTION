@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "Virgilio.Gomez@uclm.es")
 Description: Implementation of several multiple imputation methods for INLA using the 'rgeneric' latent effect. 
-Depends: spdep
+Depends: sp, spdep, rgdal, mice
 Suggests: INLA
 License: GPL 3.0
 Encoding: UTF-8
