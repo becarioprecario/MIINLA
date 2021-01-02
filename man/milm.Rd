@@ -4,8 +4,10 @@
 \alias{inla.rgeneric.milm.model}
 \title{Multiple imputation using a linear regression.}
 \usage{
-inla.rgeneric.milm.model(cmd = c("graph", "Q", "mu", "initial",
-  "log.norm.const", "log.prior", "quit"), theta = NULL)
+inla.rgeneric.milm.model(
+  cmd = c("graph", "Q", "mu", "initial", "log.norm.const", "log.prior", "quit"),
+  theta = NULL
+)
 }
 \arguments{
 \item{cmd}{Arguments used by latent effects defined using the 'rgeneric' latent effect.}
@@ -24,7 +26,7 @@ when defining the latent effect:
 \itemize{
   \item \emph{x} Vector of covariates (with missing observations).
 
-  \item \emph{XX} Matriz of covariates to be used in the multiple imputation linear model. Must be fully observed.
+  \item \emph{XX} Matrix of covariates to be used in the multiple imputation linear model. Must be fully observed.
 
   \item \emph{n} Number of observations.
 

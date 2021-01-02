@@ -4,8 +4,10 @@
 \alias{inla.rgeneric.micar.model}
 \title{Multiple imputitaon with INLA using a CAR Spatial Model}
 \usage{
-inla.rgeneric.micar.model(cmd = c("graph", "Q", "mu", "initial",
-  "log.norm.const", "log.prior", "quit"), theta = NULL)
+inla.rgeneric.micar.model(
+  cmd = c("graph", "Q", "mu", "initial", "log.norm.const", "log.prior", "quit"),
+  theta = NULL
+)
 }
 \arguments{
 \item{cmd}{Arguments used by latent effects defined using the 'rgeneric' latent effect.}
