@@ -2,3 +2,4 @@
 
 export(inla.rgeneric.micar.model)
 export(inla.rgeneric.milm.model)
+export(inla.rgeneric.micarar1.model)
