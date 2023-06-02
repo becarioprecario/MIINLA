@@ -132,7 +132,6 @@ mu <- function() {
 
 log.norm.const <- function() {
   ## return the log(normalising constant) for the model
-  param = interpret.theta()
   return (numeric(0))
 }
     log.prior <- function()
