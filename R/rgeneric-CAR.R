@@ -1,7 +1,7 @@
 #' @name inla.rgeneric.micar.model
 #' @rdname micar
 #'
-#' @title Multiple imputitaon with INLA using a CAR Spatial Model
+#' @title Multiple imputation with INLA using a CAR spatial model
 #'
 #' @description Multiple imputation using a spatial CAR regression model. The response may have missing values to be imputed, but the covariates must be fully observed.
 #'
